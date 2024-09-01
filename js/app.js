@@ -61,13 +61,9 @@ const guardarGasto = () => {
         return;
     }
 
-    let gastoExistente = gastos.find(gasto => gasto.descripcion === descripcion && gasto.categoria === categoria);
-    if (gastoExistente) {
-        gastoExistente.costo = costo;
-    } else {
         const gasto = { descripcion, costo, categoria };
         gastos.push(gasto);
-    }
+    
 
     localStorage.setItem("gastos", JSON.stringify(gastos));
     mostrarGastos();
