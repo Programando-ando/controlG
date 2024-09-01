@@ -176,6 +176,12 @@ actualizarG.onclick = () => {
         return;
     }
 
+    if (gasto.costo > disponible) {
+        Swal.fire({title: "ERROR!", text: "No hay suficiente dinero", icon: "error"});
+        return;
+    }
+
+
     localStorage.setItem("gastos", JSON.stringify(gastos));
     mostrarGastos();
 };
