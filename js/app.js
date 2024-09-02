@@ -194,8 +194,18 @@ const pintarDatos = () => {
 }
 
 const reset = () => {
-    localStorage.clear();
-    window.location.reload();
+    Swal.fire({
+        title: "¿Estás seguro de resetear el sistema?",
+        showDenyButton: true,
+        confirmButtonText: "Si",
+        denyButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.clear();
+            window.location.reload();
+        }
+    });
+
 };
 
 inicio();
